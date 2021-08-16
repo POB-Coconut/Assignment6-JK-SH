@@ -12,7 +12,7 @@ export default function Form({ handleSubmit }) {
   );
 }
 
-const Wrap = styled.li`
+const Wrap = styled.div`
   padding: 20px;
   border: 0.5px solid #ced4da;
   margin: 10px auto;

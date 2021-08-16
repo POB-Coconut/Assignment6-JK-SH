@@ -40,7 +40,7 @@ export default function App() {
   );
 }
 
-const Wrap = styled.ul`
+const Wrap = styled.div`
   margin: 30px auto;
   padding: 5px 10px;
   width: 500px;
