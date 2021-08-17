@@ -24,8 +24,12 @@ const useForm = (callback) => {
     event.persist();
     setValue(event.target.value);
     const correctedNums = event.target.value
+      .trim()
       .split(',')
-      .filter((el) => !isNaN(el))
+      .filter((el) => {
+        el = el.trim();
+        return el !== '' && !isNaN(el);
+      })
       .map((el) => +el);
     setCorrectedValue(correctedNums);
   };

@@ -11,7 +11,8 @@ export default function Form({ handleChange, handleSubmit, value }) {
           type="text"
           onChange={handleChange}
           value={value || ''}
-          placeholder="연속된 숫자 형태로 작성해주세요 (ex. 1,2,3,4..)"></NumInput>
+          placeholder="연속된 숫자 형태로 작성해주세요 (ex. 1,2,3,4..)"
+          autoComplete="off"></NumInput>
 
         <StartBtn type="submit">시작</StartBtn>
       </FlexForm>
