@@ -68,13 +68,21 @@ Admin 계정으로 로그인을 통해 userInfo를 관리하고 관련 데이터
 #### 프로젝트 구조
 
 ```html
-📦src ┣ 📂components ┃ ┣ 📜AccountButton.jsx ┃ ┣ 📜Graph.jsx ┃ ┣ 📜Navbar.jsx ┃ ┣ 📜Pagination.js ┃
-┣ 📜SearchBox.jsx ┃ ┣ 📜UserData.js ┃ ┗ 📜UserTable.js ┣ 📂data ┃ ┗ 📜userData.json ┣ 📂hooks ┃ ┗
-📜useInput.js ┣ 📂pages ┃ ┣ 📜Admin.jsx ┃ ┣ 📜Login.jsx ┃ ┣ 📜Signup.jsx ┃ ┗ 📜User.jsx ┣ 📂styles ┃
-┣ 📂icons ┃ ┃ ┗ 📜SearchIcon.jsx ┃ ┣ 📜GlobalStyles.js ┃ ┗ 📜layouts.js ┣ 📂utils ┃ ┣ 📂storage ┃ ┃
-┗ 📜index.js ┃ ┣ 📂test ┃ ┃ ┣ 📜currentUsers.test.js ┃ ┃ ┗ 📜getTotalPage.test.js ┃ ┣ 📜config.js ┃
-┣ 📜constants.js ┃ ┣ 📜currentUsers.js ┃ ┣ 📜getTotalPage.js ┃ ┣ 📜regex.js ┃ ┗ 📜usersData.json ┣
-📜App.js ┣ 📜Routes.js ┗ 📜index.js
+📦src
+ ┣ 📂components
+ ┃ ┣ 📜Form.js
+ ┃ ┣ 📜Result.js
+ ┃ ┗ 📜Timer.js
+ ┣ 📂hooks
+ ┃ ┗ 📜useForm.js
+ ┣ 📂styles
+ ┃ ┗ 📜GlobalStyles.js
+ ┣ 📂utils
+ ┃ ┣ 📜customSort.js
+ ┃ ┗ 📜mergeSort.js
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┗ 📜index.js
 ```
 
 #### 공통 component
@@ -106,9 +114,10 @@ Admin 계정으로 로그인을 통해 userInfo를 관리하고 관련 데이터
 - 이 프로젝트는 [솔라커넥트]()의 과제전형을 참조하여 학습목적으로 만들었습니다.
 - 이프로젝트에서 사용하고 있는 data는 솔라커넥트 측에서 제공받았습니다.
 - 참고 사이트
+
 | 사이트 링크                               | 내용                                                          |
-| ----------------------------------------- | -------------------------------------------------------------- |
-| [jejelee94](https://github.com/jejelee94) | Admin: 데이터테이블 /검색기능 계정추가                         |
-| [simoniful](https://github.com/simoniful) | Login/Singup: input, form 커스텀 훅, 유효성 검증               |
+| -----------------------| ----------------------------------------------|
+| [site 1](https://github.com/) | desc                      |
+| [site 2](https://github.com/) | desc             |
 
 ---
