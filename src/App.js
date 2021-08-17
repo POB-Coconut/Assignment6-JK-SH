@@ -13,9 +13,8 @@ export default function App() {
 	const korDate = new Date().toLocaleDateString("ko-KR", dateOpt);
 	const engDate = new Date().toLocaleDateString("en-US", dateOpt);
 
-	const sorting = (str) => {
+	const customSorting = (arr, opt) => {
 		// string -> array
-		let arr = str.split(",").map((x) => Number(x));
 		// sort 메서드 구현 -> 내림/오름 차순
 		for (let i = 0; i < arr.length; i++) {
 			let swap;
@@ -29,14 +28,18 @@ export default function App() {
 			if (!swap) {
 				break;
 			}
-			return arr;
+		}
+		if (opt === "desc") {
+			return arr.toString();
+		} else {
+			return arr.reverse().toString();
 		}
 		// setting State
 		// concat
 	};
 
 	const { values, errors, handleChange, handleSubmit } = useForm(
-		sorting,
+		customSorting,
 		validate
 	);
 
@@ -49,8 +52,8 @@ export default function App() {
 				handleSubmit={handleSubmit}
 				handleChange={handleChange}
 			></Form>
-			<Result>{sorting("1,3,2,5")}</Result>
-			<Result>{sorting("1,3,2,5").reverse()}</Result>
+			<Result>{customSorting([1, 3, 2, 5], "desc")}</Result>
+			<Result>{customSorting([1, 3, 2, 5], "de")}</Result>
 			<Timer>{engDate}</Timer>
 		</Wrap>
 	);
