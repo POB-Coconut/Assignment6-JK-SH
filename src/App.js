@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import styled from "styled-components";
 import Form from "./components/Form";
@@ -6,12 +7,14 @@ import Timer from "./components/Timer";
 import useForm from "./hooks/useForm";
 import { validate } from "./utils/regex";
 
+
 export default function App() {
 	const [sortAscending, setSortAscending] = useState("");
 	const [sortDescending, setSortDescending] = useState("");
 	const dateOpt = { dateStyle: "full" };
 	const korDate = new Date().toLocaleDateString("ko-KR", dateOpt);
 	const engDate = new Date().toLocaleDateString("en-US", dateOpt);
+
 
 	const customSorting = (arr, opt) => {
 		// string -> array
@@ -57,6 +60,7 @@ export default function App() {
 			<Timer>{engDate}</Timer>
 		</Wrap>
 	);
+
 }
 
 const Wrap = styled.div`
