@@ -13,8 +13,8 @@ export const customSort = (arr, opt) => {
     }
   }
   if (opt === 'desc') {
-    return arr.reverse().toString();
+    return arr.reverse();
   } else {
-    return arr.toString();
+    return arr;
   }
 };

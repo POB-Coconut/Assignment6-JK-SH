@@ -5,19 +5,15 @@ import Result from './components/Result';
 import Timer from './components/Timer';
 import useForm from './hooks/useForm';
 import { customSort } from './utils/customSort';
+import { mergeSort } from './utils/mergeSort';
 
 export default function App() {
   const [sortAscending, setSortAscending] = useState('');
   const [sortDescending, setSortDescending] = useState('');
-  const dateOpt = { dateStyle: 'full' };
-  const korDate = new Date().toLocaleDateString('ko-KR', dateOpt);
-  const engDate = new Date().toLocaleDateString('en-US', dateOpt);
 
   const handleSort = (correctedValue) => {
-    setSortAscending('Loading');
-    setSortDescending('Loading');
-    const newSortAscending = customSort(correctedValue, 'asc');
-    const newSortDescending = customSort(correctedValue, 'desc');
+    const newSortAscending = customSort(correctedValue, 'asc').toString();
+    const newSortDescending = customSort(correctedValue, 'desc').toString();
     new Promise((resolve, _reject) => {
       setSortAscending(newSortAscending);
       setTimeout(() => {
@@ -33,14 +29,14 @@ export default function App() {
 
   return (
     <Wrap>
-      <Timer>{korDate}</Timer>
+      <Timer localeType="ko-KR" />
       <Form
         value={value}
         handleSubmit={handleSubmit}
         handleChange={handleChange}></Form>
       <Result>{sortAscending}</Result>
       <Result>{sortDescending}</Result>
-      <Timer>{engDate}</Timer>
+      <Timer localeType="en-US" />
     </Wrap>
   );
 }
