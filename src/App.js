@@ -12,7 +12,16 @@ export default function App() {
 	const korDate = new Date().toLocaleDateString("ko-KR", dateOpt);
 	const engDate = new Date().toLocaleDateString("en-US", dateOpt);
 
-	const customSorting = (arr, opt) => {
+	const handleSort = (currentedValue) => {
+		console.log(currentedValue);
+		const newSortAscending = customSort(correctedValue, "asc");
+		const newSortDescending = customSort(correctedValue, "desc");
+		setSortAscending(newSortAscending);
+		setSortDescending(newSortDescending);
+		return true;
+	};
+
+	const customSort = (arr, opt) => {
 		// string -> array
 		// sort 메서드 구현 -> 내림/오름 차순
 		for (let i = 0; i < arr.length; i++) {
@@ -37,19 +46,20 @@ export default function App() {
 		// concat
 	};
 
-	const { value, errors, handleChange, handleSubmit } = useForm(customSorting);
+	const { value, correctedValue, handleChange, handleSubmit } = useForm(
+		handleSort
+	);
 
 	return (
 		<Wrap>
 			<Timer>{korDate}</Timer>
 			<Form
 				value={value}
-				errors={errors}
 				handleSubmit={handleSubmit}
 				handleChange={handleChange}
 			></Form>
-			<Result>{customSorting(value, "desc")}</Result>
-			<Result>{customSorting([1, 3, 2, 5], "asce")}</Result>
+			<Result>{sortAscending}</Result>
+			<Result>{sortDescending}</Result>
 			<Timer>{engDate}</Timer>
 		</Wrap>
 	);
