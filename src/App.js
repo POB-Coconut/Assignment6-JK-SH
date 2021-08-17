@@ -38,9 +38,9 @@ export default function App() {
 			}
 		}
 		if (opt === "desc") {
-			return arr.toString();
-		} else {
 			return arr.reverse().toString();
+		} else {
+			return arr.toString();
 		}
 		// setting State
 		// concat
