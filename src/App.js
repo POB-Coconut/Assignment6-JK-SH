@@ -1,12 +1,9 @@
-
 import React, { useState } from "react";
 import styled from "styled-components";
 import Form from "./components/Form";
 import Result from "./components/Result";
 import Timer from "./components/Timer";
 import useForm from "./hooks/useForm";
-import { validate } from "./utils/regex";
-
 
 export default function App() {
 	const [sortAscending, setSortAscending] = useState("");
@@ -14,7 +11,6 @@ export default function App() {
 	const dateOpt = { dateStyle: "full" };
 	const korDate = new Date().toLocaleDateString("ko-KR", dateOpt);
 	const engDate = new Date().toLocaleDateString("en-US", dateOpt);
-
 
 	const customSorting = (arr, opt) => {
 		// string -> array
@@ -41,26 +37,22 @@ export default function App() {
 		// concat
 	};
 
-	const { values, errors, handleChange, handleSubmit } = useForm(
-		customSorting,
-		validate
-	);
+	const { value, errors, handleChange, handleSubmit } = useForm(customSorting);
 
 	return (
 		<Wrap>
 			<Timer>{korDate}</Timer>
 			<Form
-				values={values}
+				value={value}
 				errors={errors}
 				handleSubmit={handleSubmit}
 				handleChange={handleChange}
 			></Form>
-			<Result>{customSorting([1, 3, 2, 5], "desc")}</Result>
-			<Result>{customSorting([1, 3, 2, 5], "de")}</Result>
+			<Result>{customSorting(value, "desc")}</Result>
+			<Result>{customSorting([1, 3, 2, 5], "asce")}</Result>
 			<Timer>{engDate}</Timer>
 		</Wrap>
 	);
-
 }
 
 const Wrap = styled.div`
