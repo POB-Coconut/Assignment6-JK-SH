@@ -4,7 +4,6 @@ import Form from './components/Form';
 import Result from './components/Result';
 import Timer from './components/Timer';
 import useForm from './hooks/useForm';
-import { validate } from './utils/regex';
 
 export default function App() {
   const [sortAscending, setSortAscending] = useState('');
@@ -13,28 +12,25 @@ export default function App() {
   const korDate = new Date().toLocaleDateString('ko-KR', dateOpt);
   const engDate = new Date().toLocaleDateString('en-US', dateOpt);
 
-  const sorting = () => {
-    // string -> array
-    // sort 메서드 구현 -> 내림/오름 차순
-    // setting State
-    // concat
+  const sorting = (correctedValue) => {
+    const newSortAscending = correctedValue.sort((a, b) => a - b).toString();
+    const newSortDescending = correctedValue.sort((a, b) => b - a).toString();
+    setSortAscending(newSortAscending);
+    setSortDescending(newSortDescending);
+    return true;
   };
 
-  const { values, errors, handleChange, handleSubmit } = useForm(
-    sorting,
-    validate
-  );
+  const { value, handleChange, handleSubmit } = useForm(sorting);
 
   return (
     <Wrap>
       <Timer>{korDate}</Timer>
       <Form
-        values={values}
-        errors={errors}
+        value={value}
         handleSubmit={handleSubmit}
         handleChange={handleChange}></Form>
-      <Result></Result>
-      <Result></Result>
+      <Result>{sortAscending}</Result>
+      <Result>{sortDescending}</Result>
       <Timer>{engDate}</Timer>
     </Wrap>
   );
